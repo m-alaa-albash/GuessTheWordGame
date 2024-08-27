@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #f44336;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #EEE;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  text-align: center;
+  padding: 20px;
+  margin: 0 0 30px;
+  background-color: white;
+  width: 100vw;
+}
+.guess-game {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  .game-side {
+    .inputs {
+      > div {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          font-size: 30px;
+          margin-right: 15px;
+        }
+      }
+      .disabled-input {
+        opacity: .5;
+        pointer-events: none;
+      }
+      input {
+        margin: 0 5px;
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        text-align: center;
+        background-color: white;
+        caret-color: var(--primary-color);
+        border: none;
+        border-bottom: 3px solid #333;
+        &:focus {
+          outline-color: #ccc;
+        }
+        &.yes-in-place {
+          background-color: #f89e13;
+          border: #f89e13;
+          color: white;
+        }
+        &.not-in-place {
+          background-color: #18ba89;
+          border: #18ba89;
+          color: white;
+        }
+        &.no {
+          background-color: #27303f;
+          border: #27303f;
+          color: white;
+        }
+      }
+    }
+    .control {
+      width: 500px;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      .check {
+        background-color: var(--primary-color);
+        flex: 1;
+      }
+      .hint {
+        background-color: #009688;
+        width: fit-content;
+      }
+      button {
+        border: none;
+        border-radius: 6px;
+        padding: 15px 20px;
+        font-size: 25px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+      }
+      button:disabled {
+        background-color: black;
+        opacity: .4;
+        cursor: no-drop;
+      }
+    }
+  }
+  .key-side {
+    .key-color {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      background-color: white;
+      .key {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+        &.in-place {
+          background-color: #f89e13;
+        }
+        &.not-in-place {
+          background-color: #18ba89;
+        }
+        &.no {
+          background-color: #27303f;
+        }
+      }
+      .key-text {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  h1 {
+    width: 100%;
+  }
+  .guess-game {
+    width: 100%;
+    margin: 0 0 40px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .inputs {
+    > div {
+      margin: 0 0 10px !important;
+      input {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 20px !important;
+      }
+    }
+  }
+  .control {
+    width: 100% !important;
+    flex-direction: column;
+    button,
+    .hint {
+      width: 100% !important;
+    }
+  }
+  .key-side {
+    width: calc(100vw - 75px);
+    .key-text {
+      font-size: 17px !important;
+      text-wrap: wrap !important;
+    }
+  }
+}
+.message {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  span {
+    font-weight: bold;
+    display: block;
+    font-size: 50px;
+    color: var(--primary-color);
+    text-transform: capitalize;
+    margin-top: 10px;
+  }
+  p {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 1000px) {
+  .message {
+    width: calc(100% - 100px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  width: 100%;
+}
